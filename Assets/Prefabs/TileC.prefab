@@ -48,6 +48,7 @@ MonoBehaviour:
   _perlinConfig:
     Zoom: 0.25
     TimeScale: 0.25
+    Amplitude: 3
 --- !u!1001 &1989567526773611035
 PrefabInstance:
   m_ObjectHideFlags: 0

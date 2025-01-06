@@ -461,7 +461,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.5756703, g: 0.2216981, b: 1, a: 1}
+  m_Color: {r: 0.3915094, g: 1, b: 0.71749485, a: 1}
   m_Intensity: 200
   m_Range: 10
   m_SpotAngle: 30
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6e0561464e0f349957a75857d361c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _degreesPerSecond: 30
+  _degreesPerSecond: 5
 --- !u!43 &162586500
 Mesh:
   m_ObjectHideFlags: 0

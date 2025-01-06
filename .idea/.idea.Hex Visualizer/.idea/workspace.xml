@@ -9,8 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/m_HexTile.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/m_HexTile.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Shaders/s_HexTile.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Shaders/s_HexTile.shadergraph" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/OutdoorsScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/OutdoorsScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EntitiesClientSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TileC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TileC.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
