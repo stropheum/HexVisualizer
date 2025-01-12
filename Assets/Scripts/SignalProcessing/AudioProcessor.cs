@@ -30,8 +30,6 @@ namespace Hex.SignalProcessing
             HighPassFilter = 1f
         };
 
-        private int SampleCount => (int)Mathf.Pow(2, _config.SampleCountPowerOf2);
-
         private AudioSource _audioSource;
         private float[] _spectrumData;
         private NativeArray<float> _samples;
@@ -47,23 +45,6 @@ namespace Hex.SignalProcessing
             yield return GetAudioData();
         }
 
-        private void Update()
-        {
-            // TODO: Consider adding in low-pass and high-pass filters to reduce noise. Add parameterized spectrum filters to isolate frequency groups 
-            // float currentAudioTime = _audioSource.time; // Time in seconds
-            // int currentAudioSample = _audioSource.timeSamples; // Sample index
-            // int sampleRate = AudioSettings.outputSampleRate;
-            //
-            // var spectrum = new float[_sampleCount];
-            // _audioSource.GetSpectrumData(spectrum, 0, _fftWindow);
-            // float sum = 0f;
-            // for (int i = 0; i < spectrum.Length; i++)
-            // {
-            //     sum += spectrum[i] * _amplitude;
-            // }
-            // transform.position = new Vector3(transform.position.x, sum, transform.position.z);
-        }
-
         private void OnDestroy()
         {
             _samples.Dispose();
@@ -73,7 +54,9 @@ namespace Hex.SignalProcessing
         {
             using (Draw.Command(cam))
             {
-                int sampleCount = SampleCount;
+                Vector3 drawOrigin = CalculateDrawOrigin();
+                int sampleCount = CalculateSampleCount();
+                _samplesText.text = "SampleCount: " + sampleCount;
                 float[] spectrum = new float[sampleCount];
                 _audioSource.GetSpectrumData(spectrum, 0, _config.FftWindow);
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
@@ -86,20 +69,31 @@ namespace Hex.SignalProcessing
                     Draw.Color = Color.green;
                     var start = new Vector3(Mathf.Log(i - 1), spectrum[i - 1] * _config.Amplitude, 0);
                     var end = new Vector3(Mathf.Log(i), spectrum[i] * _config.Amplitude, 0);
-                    Draw.Line(transform.position + start, transform.position + end);
+                    Draw.Line(drawOrigin + start, drawOrigin + end);
                 }
 
-                float lowPassX = transform.position.x + Mathf.Log((int)(sampleCount * _config.LowPassFilter));
-                float highPassX = transform.position.x + Mathf.Log((int)(sampleCount * _config.HighPassFilter));
+                float logSampleCount = Mathf.Log(sampleCount-1);
+                float lowPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _config.LowPassFilter);
+                float highPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _config.HighPassFilter);
                 Draw.Color = Color.magenta;
                 Draw.Line(
-                    new Vector3(lowPassX, transform.position.y, transform.position.z),
-                    new Vector3(lowPassX, transform.position.y + _config.Amplitude, transform.position.z));
+                    new Vector3(lowPassX, drawOrigin.y, drawOrigin.z),
+                    new Vector3(lowPassX, drawOrigin.y + 2f, drawOrigin.z));
                 Draw.Color = Color.cyan;
                 Draw.Line(
-                    new Vector3(highPassX, transform.position.y, transform.position.z),
-                    new Vector3(highPassX, transform.position.y + _config.Amplitude, transform.position.z));
+                    new Vector3(highPassX, drawOrigin.y, drawOrigin.z),
+                    new Vector3(highPassX, drawOrigin.y + 2f, drawOrigin.z));
             }
+        }
+        
+        private int CalculateSampleCount()
+        {
+            return (int)Mathf.Pow(2, _config.SampleCountPowerOf2);
+        }
+
+        private Vector3 CalculateDrawOrigin()
+        {
+            return transform.position + new Vector3(Mathf.Log(CalculateSampleCount()) / -2f, .5f, 0f);
         }
 
         private IEnumerator GetAudioData()
