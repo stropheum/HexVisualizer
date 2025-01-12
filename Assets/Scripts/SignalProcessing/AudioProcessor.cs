@@ -1,22 +1,31 @@
 using System;
 using System.Collections;
-using System.Globalization;
 using Shapes;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Hex.SignalProcessing
 {
+    [Serializable]
+    public struct ProcessorConfiguration
+    {
+        [SerializeField] public int SampleCount;
+        [SerializeField] public FFTWindow FftWindow;
+        [SerializeField] [Range(0f, 10f)] public float Amplitude;
+        [SerializeField] [Range(0f, 1f)] public float LowPassFilter;
+        [SerializeField] [Range(0f, 1f)] public float HighPassFilter;
+    }
+
     [RequireComponent(typeof(AudioSource))]
     public class AudioProcessor : ImmediateModeShapeDrawer
     {
         [SerializeField] private TextMeshPro _samplesText;
-        [SerializeField] [Range(0f, 10f)] private float _amplitude = 1f;
-        [SerializeField] private FFTWindow _fftWindow = FFTWindow.Rectangular;
-        [SerializeField] private int _sampleCount = 1024;
-        [SerializeField] [Range(0f, 1f)] private float _lowPassFilter = 0.0f;
-        [SerializeField] [Range(0f, 1f)] private float _highPassFilter = 1.0f;
+
+        [FormerlySerializedAs("_configuration")] [SerializeField]
+        private ProcessorConfiguration _config;
+
         private AudioSource _audioSource;
         private float[] _spectrumData;
         private NativeArray<float> _samples;
@@ -48,7 +57,7 @@ namespace Hex.SignalProcessing
             // }
             // transform.position = new Vector3(transform.position.x, sum, transform.position.z);
         }
-        
+
         private void OnDestroy()
         {
             _samples.Dispose();
@@ -58,33 +67,45 @@ namespace Hex.SignalProcessing
         {
             using (Draw.Command(cam))
             {
-                var spectrum = new float[_sampleCount];
-                _audioSource.GetSpectrumData(spectrum, 0, _fftWindow);
+                float[] spectrum = new float[_config.SampleCount];
+                _audioSource.GetSpectrumData(spectrum, 0, _config.FftWindow);
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
                 Draw.ThicknessSpace = ThicknessSpace.Meters;
                 Draw.Thickness = 0.025f;
-
                 Draw.Matrix = transform.localToWorldMatrix;
-                
+
                 for (int i = 1; i < spectrum.Length - 1; i++)
                 {
                     Draw.Color = Color.green;
-                    Draw.Line(new Vector3(Mathf.Log(i - 1), spectrum[i - 1] * _amplitude, 1), new Vector3(Mathf.Log(i), spectrum[i] * _amplitude, 1));
-                }                
+                    var start = new Vector3(Mathf.Log(i - 1), spectrum[i - 1] * _config.Amplitude, 0);
+                    var end = new Vector3(Mathf.Log(i), spectrum[i] * _config.Amplitude, 0);
+                    Draw.Line(transform.position + start, transform.position + end);
+                }
+
+                float lowPassX = transform.position.x + Mathf.Log((int)(_config.SampleCount * _config.LowPassFilter));
+                float highPassX = transform.position.x + Mathf.Log((int)(_config.SampleCount * _config.HighPassFilter));
+                Draw.Color = Color.magenta;
+                Draw.Line(
+                    new Vector3(lowPassX, transform.position.y, transform.position.z),
+                    new Vector3(lowPassX, transform.position.y + _config.Amplitude, transform.position.z));
+                Draw.Color = Color.cyan;
+                Draw.Line(
+                    new Vector3(highPassX, transform.position.y, transform.position.z),
+                    new Vector3(highPassX, transform.position.y + _config.Amplitude, transform.position.z));
             }
         }
 
         private IEnumerator GetAudioData()
         {
             // Wait for sample data to be loaded
-            while (_audioSource.clip.loadState != AudioDataLoadState.Loaded) { yield return null; }
-    
+            while (_audioSource.clip.loadState != AudioDataLoadState.Loaded) yield return null;
+
             // Read all the samples from the clip and halve the gain
             int numSamples = _audioSource.clip.samples * _audioSource.clip.channels;
             _samples = new NativeArray<float>(numSamples, Allocator.Persistent);
             _audioSource.clip.GetData(_samples, 0);
             int frequency = _audioSource.clip.frequency;
-            
+
             _spectrumData = new float[64];
             _audioSource.GetSpectrumData(_spectrumData, 0, FFTWindow.BlackmanHarris);
         }
