@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="Reorganized, eliminiated temp code, added RootMeanSquare to math lib">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="Changed sampleCount to be configurable only as powers of 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +47,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Math/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
@@ -139,7 +138,7 @@
       <workItem from="1736098307917" duration="18393000" />
       <workItem from="1736570205824" duration="592000" />
       <workItem from="1736639659877" duration="12384000" />
-      <workItem from="1736702040511" duration="3754000" />
+      <workItem from="1736702040511" duration="4132000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -165,7 +164,23 @@
       <option name="project" value="LOCAL" />
       <updated>1736704939477</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added rendering for low and high pass filters">
+      <option name="closed" value="true" />
+      <created>1736706004396</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1736706004396</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Changed sampleCount to be configurable only as powers of 2">
+      <option name="closed" value="true" />
+      <created>1736706245802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1736706245802</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +230,8 @@
     <MESSAGE value="Added signal processing testbed" />
     <MESSAGE value="removed comment" />
     <MESSAGE value="Reorganized, eliminiated temp code, added RootMeanSquare to math lib" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganized, eliminiated temp code, added RootMeanSquare to math lib" />
+    <MESSAGE value="added rendering for low and high pass filters" />
+    <MESSAGE value="Changed sampleCount to be configurable only as powers of 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed sampleCount to be configurable only as powers of 2" />
   </component>
 </project>

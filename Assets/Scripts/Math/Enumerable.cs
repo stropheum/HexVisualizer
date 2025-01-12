@@ -14,7 +14,7 @@ namespace Hex.Math
         /// <returns>The root-mean-square value of the element at the provided index</returns>
         public static float RootMeanSquare(IEnumerable<float> values, int index)
         {
-            var sum = 0f;
+            float sum = 0f;
             float[] enumerable = values as float[] ?? values.ToArray();
             int count = enumerable.Length;
             for (int i = 0; i < count; i++)
@@ -25,6 +25,7 @@ namespace Hex.Math
                     sum += enumerable[currentIndex] * enumerable[currentIndex]; // Square the sample
                 }
             }
+
             return Mathf.Sqrt(sum / count); // RMS
         }
     }

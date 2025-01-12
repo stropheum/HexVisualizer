@@ -21,8 +21,15 @@ namespace Hex.SignalProcessing
     public class AudioProcessor : ImmediateModeShapeDrawer
     {
         [SerializeField] private TextMeshPro _samplesText;
-        [SerializeField] private ProcessorConfiguration _config;
-        
+
+        [SerializeField] private ProcessorConfiguration _config = new()
+        {
+            SampleCountPowerOf2 = 10,
+            Amplitude = 1f,
+            LowPassFilter = 0f,
+            HighPassFilter = 1f
+        };
+
         private int SampleCount => (int)Mathf.Pow(2, _config.SampleCountPowerOf2);
 
         private AudioSource _audioSource;
