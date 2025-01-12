@@ -19,7 +19,7 @@ namespace Hex.Systems
                 float delta = Mathf.PerlinNoise(
                     position.x * configRO.Zoom + Time.time * configRO.TimeScale,
                     position.z * configRO.Zoom + Time.time * configRO.TimeScale);
-                transform.ValueRW.Position.y = delta;
+                // transform.ValueRW.Position.y = delta;
             }
         }
     }
