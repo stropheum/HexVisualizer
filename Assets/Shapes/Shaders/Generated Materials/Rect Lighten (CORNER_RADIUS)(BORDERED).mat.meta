@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 30cc88762d3fbb246a2383a15ab68dc9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 173167
+  packageName: Shapes
+  packageVersion: 4.5.0
+  assetPath: Assets/Shapes/Shaders/Generated Materials/Rect Lighten (CORNER_RADIUS)(BORDERED).mat
+  uploadId: 705858
