@@ -4,15 +4,14 @@ using Shapes;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Hex.SignalProcessing
 {
     [Serializable]
     public struct ProcessorConfiguration
     {
-        [SerializeField] public int SampleCount;
         [SerializeField] public FFTWindow FftWindow;
+        [SerializeField] [Range(6, 10)] public int SampleCountPowerOf2;
         [SerializeField] [Range(0f, 10f)] public float Amplitude;
         [SerializeField] [Range(0f, 1f)] public float LowPassFilter;
         [SerializeField] [Range(0f, 1f)] public float HighPassFilter;
@@ -22,9 +21,9 @@ namespace Hex.SignalProcessing
     public class AudioProcessor : ImmediateModeShapeDrawer
     {
         [SerializeField] private TextMeshPro _samplesText;
-
-        [FormerlySerializedAs("_configuration")] [SerializeField]
-        private ProcessorConfiguration _config;
+        [SerializeField] private ProcessorConfiguration _config;
+        
+        private int SampleCount => (int)Mathf.Pow(2, _config.SampleCountPowerOf2);
 
         private AudioSource _audioSource;
         private float[] _spectrumData;
@@ -67,7 +66,8 @@ namespace Hex.SignalProcessing
         {
             using (Draw.Command(cam))
             {
-                float[] spectrum = new float[_config.SampleCount];
+                int sampleCount = SampleCount;
+                float[] spectrum = new float[sampleCount];
                 _audioSource.GetSpectrumData(spectrum, 0, _config.FftWindow);
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
                 Draw.ThicknessSpace = ThicknessSpace.Meters;
@@ -82,8 +82,8 @@ namespace Hex.SignalProcessing
                     Draw.Line(transform.position + start, transform.position + end);
                 }
 
-                float lowPassX = transform.position.x + Mathf.Log((int)(_config.SampleCount * _config.LowPassFilter));
-                float highPassX = transform.position.x + Mathf.Log((int)(_config.SampleCount * _config.HighPassFilter));
+                float lowPassX = transform.position.x + Mathf.Log((int)(sampleCount * _config.LowPassFilter));
+                float highPassX = transform.position.x + Mathf.Log((int)(sampleCount * _config.HighPassFilter));
                 Draw.Color = Color.magenta;
                 Draw.Line(
                     new Vector3(lowPassX, transform.position.y, transform.position.z),
