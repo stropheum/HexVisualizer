@@ -31,6 +31,7 @@ namespace Hex.SignalProcessing
 
         private void Update()
         {
+            // TODO: Consider adding in low-pass and high-pass filters to reduce noise. Add parameterized spectrum filters to isolate frequency groups 
             float currentAudioTime = _audioSource.time; // Time in seconds
             int currentAudioSample = _audioSource.timeSamples; // Sample index
             int sampleRate = AudioSettings.outputSampleRate;
