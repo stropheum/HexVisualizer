@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="" />
+    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,24 +35,20 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/36/6bd90ad2/NativeArray`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/79/f977ab25/FFTWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/f6/51d5d741/AudioSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Authoring/TileStoreAuthor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Math/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Transforms/LocalTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/MaterialReferenceManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph/Runtime/Utilities/PropertyBinding/Implementation/VFXAudioSpectrumBinder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualeffectgraph/Runtime/Utilities/PropertyBinding/VFXBinderBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -132,6 +131,7 @@
       <workItem from="1736098307917" duration="18393000" />
       <workItem from="1736570205824" duration="592000" />
       <workItem from="1736639659877" duration="12384000" />
+      <workItem from="1736702040511" duration="2701000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -199,25 +199,5 @@
     <MESSAGE value="Added signal processing testbed" />
     <MESSAGE value="removed comment" />
     <option name="LAST_COMMIT_MESSAGE" value="removed comment" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <condition expression="currentFrame &lt; 0" language="C#" />
-          <url>file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs</url>
-          <line>137</line>
-          <properties documentPath="E:\Users\strop\Documents\GitHub\Hex Visualizer\Assets\Scripts\SignalProcessing\AudioProcessor.cs" containingFunctionPresentation="Method 'FixedUpdate'">
-            <startOffsets>
-              <option value="6585" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6686" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
