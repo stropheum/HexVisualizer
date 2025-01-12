@@ -8,8 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="removed comment">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
@@ -135,7 +135,7 @@
       <updated>1736098273958</updated>
       <workItem from="1736098307917" duration="18393000" />
       <workItem from="1736570205824" duration="592000" />
-      <workItem from="1736639659877" duration="11731000" />
+      <workItem from="1736639659877" duration="12357000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -210,13 +210,13 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <condition expression="currentFrame &lt; 0" language="C#" />
           <url>file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs</url>
-          <line>136</line>
+          <line>137</line>
           <properties documentPath="E:\Users\strop\Documents\GitHub\Hex Visualizer\Assets\Scripts\SignalProcessing\AudioProcessor.cs" containingFunctionPresentation="Method 'FixedUpdate'">
             <startOffsets>
-              <option value="6433" />
+              <option value="6585" />
             </startOffsets>
             <endOffsets>
-              <option value="6534" />
+              <option value="6686" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
