@@ -9,6 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="updated workspace">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Math.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Math/Enumerable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Math/Enumerable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,38 +38,52 @@
     &quot;assignee&quot;: &quot;stropheum&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/stropheum/HexVisualizer.git",
-    "accountId": "c19b42a8-0a39-4154-ba51-943022c84909"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/stropheum/HexVisualizer.git&quot;,
+    &quot;accountId&quot;: &quot;c19b42a8-0a39-4154-ba51-943022c84909&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "stropheum",
-    "repository": "HexVisualizer"
+    &quot;owner&quot;: &quot;stropheum&quot;,
+    &quot;repository&quot;: &quot;HexVisualizer&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f6/0b2ccbfa/020009B8pdb49.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/21/e76e96cf/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/36/6bd90ad2/NativeArray`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/07/97e60898/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/3e/47e2ad47/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/ce/40886c6e/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f9/9ae29aa6/IReadOnlyCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/79/f977ab25/FFTWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/e9/559f2ad6/AudioClip.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/f6/51d5d741/AudioSource.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed969b0e627d471da4848289f9c322df46ae00/55/8b89858c/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Authoring/TileStoreAuthor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Math/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Math/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Shapes/Scripts/Runtime/Immediate Mode/DrawOverloads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Transforms/LocalTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui/Runtime/TMP/MaterialReferenceManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,7 +105,7 @@
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Stropheum/signal-processing&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Stropheum/wave-propagation&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -127,13 +146,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23584">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="23584" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -153,7 +174,7 @@
       <workItem from="1736570205824" duration="592000" />
       <workItem from="1736639659877" duration="12384000" />
       <workItem from="1736702040511" duration="6736000" />
-      <workItem from="1736716797046" duration="2295000" />
+      <workItem from="1736716797046" duration="17921000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -283,5 +304,25 @@
     <MESSAGE value="Configured low and high pass filters in visualization" />
     <MESSAGE value="updated workspace" />
     <option name="LAST_COMMIT_MESSAGE" value="updated workspace" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <condition expression="normalizedAmplitude == Single.nan" language="C#" />
+          <url>file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs</url>
+          <line>68</line>
+          <properties documentPath="E:\Users\strop\Documents\GitHub\Hex Visualizer\Assets\Scripts\SignalProcessing\AudioProcessor.cs" containingFunctionPresentation="Method 'Update'">
+            <startOffsets>
+              <option value="2271" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2335" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

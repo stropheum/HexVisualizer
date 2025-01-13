@@ -21,7 +21,6 @@ namespace Hex.SignalProcessing
     public class AudioProcessor : ImmediateModeShapeDrawer
     {
         [SerializeField] private TextMeshPro _samplesText;
-
         [SerializeField] private ProcessorConfiguration _config = new()
         {
             SampleCountPowerOf2 = 10,
@@ -30,9 +29,15 @@ namespace Hex.SignalProcessing
             HighPassFilter = 1f
         };
 
+        public event Action<float[], float> SpectrumDataEmitted;
+
         private AudioSource _audioSource;
         private float[] _spectrumData;
         private NativeArray<float> _samples;
+        private int _previousTimeSampleTick;
+        private float _minAmplitude;
+        private float _maxAmplitude;
+        private bool _initialized;
 
         private void Awake()
         {
@@ -43,6 +48,28 @@ namespace Hex.SignalProcessing
         {
             _audioSource.Play();
             yield return GetAudioData();
+        }
+
+        private void Update()
+        {
+            if (!_initialized) { return; }
+            int samplesToProcess = _audioSource.timeSamples - _previousTimeSampleTick;
+            if (samplesToProcess == 0) { return; }
+            int startIndex = _audioSource.timeSamples - samplesToProcess;
+            float sum = 0f;
+            for (int i = 0; i < samplesToProcess; i++)
+            {
+                int index = startIndex + i;
+                sum += _samples[index];
+            }
+
+            float amplitude = (sum / samplesToProcess);
+            // float normalizedAmplitude = (amplitude - _minAmplitude) / (_maxAmplitude - _minAmplitude);
+            _audioSource.GetSpectrumData(_spectrumData, 0, _config.FftWindow);
+            // SpectrumDataEmitted?.Invoke(_spectrumData, normalizedAmplitude);
+            SpectrumDataEmitted?.Invoke(_spectrumData, amplitude);
+            _samplesText.text = "Raw: " + amplitude.ToString("0.0000") + "\nMin: " + _minAmplitude + "\nMax: " + _maxAmplitude + "\nNormalized Amplitude: " + amplitude.ToString("0.00");
+            _previousTimeSampleTick = _audioSource.timeSamples;
         }
 
         private void OnDestroy()
@@ -56,7 +83,7 @@ namespace Hex.SignalProcessing
             {
                 Vector3 drawOrigin = CalculateDrawOrigin();
                 int sampleCount = CalculateSampleCount();
-                _samplesText.text = "SampleCount: " + sampleCount;
+                // _samplesText.text = "SampleCount: " + sampleCount;
                 float[] spectrum = new float[sampleCount];
                 _audioSource.GetSpectrumData(spectrum, 0, _config.FftWindow);
                 Draw.LineGeometry = LineGeometry.Volumetric3D;
@@ -108,7 +135,24 @@ namespace Hex.SignalProcessing
             int frequency = _audioSource.clip.frequency;
 
             _spectrumData = new float[64];
-            _audioSource.GetSpectrumData(_spectrumData, 0, FFTWindow.BlackmanHarris);
+            _audioSource.GetSpectrumData(_spectrumData, 0, _config.FftWindow);
+
+            yield return null;
+            // _minAmplitude = float.MaxValue;
+            // _maxAmplitude = float.MinValue;
+            // foreach (float sample in _samples)
+            // {
+            //     if (sample < _minAmplitude)
+            //     {
+            //         _minAmplitude = sample;
+            //     }
+            //
+            //     if (sample > _maxAmplitude)
+            //     {
+            //         _maxAmplitude = sample;
+            //     }
+            // }
+            _initialized = true;
         }
     }
 }

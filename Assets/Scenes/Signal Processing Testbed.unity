@@ -381,13 +381,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775384265}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 130.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &775384269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,6 +602,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3772731302976612224, guid: d5f0ce5e1bdae8648bc711b7c88c3e6f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1622167520}
+    - targetCorrespondingSourceObject: {fileID: 3772731302976612224, guid: d5f0ce5e1bdae8648bc711b7c88c3e6f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1622167521}
   m_SourcePrefab: {fileID: 100100000, guid: d5f0ce5e1bdae8648bc711b7c88c3e6f, type: 3}
 --- !u!1 &1132739296
 GameObject:
@@ -1048,9 +1051,55 @@ MonoBehaviour:
   _config:
     FftWindow: 0
     SampleCountPowerOf2: 10
-    Amplitude: 1
+    Amplitude: 10
     LowPassFilter: 0
     HighPassFilter: 1
+--- !u!114 &1622167521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622167510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee5454d0067dd34592011c879b05f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useCullingMasks: 0
+  _waveLifeSpanInSeconds: 15
+  _propagationSpeedMetersPerSecond: 40
+  _amplitudeGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.2856667, g: 1, b: 0, a: 1}
+    key2: {r: 0.29019612, g: 0.8235294, b: 0.59499604, a: 0}
+    key3: {r: 0.29019612, g: 0.5949072, b: 0.8235294, a: 0}
+    key4: {r: 0.44264057, g: 0.29019612, b: 0.8235294, a: 0}
+    key5: {r: 0.8235294, g: 0.29019612, b: 0.74726295, a: 0}
+    key6: {r: 0.8235294, g: 0.29019612, b: 0.29019612, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10923
+    ctime2: 21845
+    ctime3: 32768
+    ctime4: 43691
+    ctime5: 54614
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 2
+    m_ColorSpace: -1
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
+  _amplitudeMultiplier: 5
 --- !u!1 &1999938020
 GameObject:
   m_ObjectHideFlags: 0
