@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Hex.SignalProcessing.Wave
 {
     public class WaveData
@@ -6,5 +8,6 @@ namespace Hex.SignalProcessing.Wave
         public float Amplitude { get; set; }
         public float AgeInSeconds { get; set; }
         public float? RelativeAmplitude { get; set; }
+        public Color Color { get; set; }
     }
 }
