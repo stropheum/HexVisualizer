@@ -991,8 +991,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: d197f3614917b2545a4e9df2f37bdcf7, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7334a58574cd58b4b9e45c7dd90cffda, type: 3}
-  m_Resource: {fileID: 8300000, guid: 7334a58574cd58b4b9e45c7dd90cffda, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3ac2b77ff64167b4289c03c208033e26, type: 3}
+  m_Resource: {fileID: 8300000, guid: 3ac2b77ff64167b4289c03c208033e26, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1101,8 +1101,6 @@ MonoBehaviour:
     FftWindow: 0
     SampleCountPowerOf2: 10
     Amplitude: 10
-    LowPassFilter: 0
-    HighPassFilter: 1
 --- !u!114 &1622167521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,7 +1150,7 @@ MonoBehaviour:
   _amplitudeMultiplier: 5
   _minAmplitude: 0.05
   _lowPassFilter: 0
-  _highPassFilter: 0
+  _highPassFilter: 1
 --- !u!1 &1999938020
 GameObject:
   m_ObjectHideFlags: 0
