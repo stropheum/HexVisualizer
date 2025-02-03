@@ -9,9 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,8 +52,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f6/0b2ccbfa/020009B8pdb49.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/21/e76e96cf/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44f3679c53d1477a9c6e72f269e3a3a91de200/36/6bd90ad2/NativeArray`1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -73,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shapes/Scripts/Runtime/Immediate Mode/DrawOverloads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
@@ -137,15 +134,13 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20612">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="20612" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -167,6 +162,8 @@
       <workItem from="1736702040511" duration="6736000" />
       <workItem from="1736716797046" duration="18867000" />
       <workItem from="1736782233619" duration="8678000" />
+      <workItem from="1737225992372" duration="308000" />
+      <workItem from="1738545040674" duration="9219000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />

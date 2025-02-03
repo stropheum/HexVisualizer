@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Shapes;
 using TMPro;
 using Unity.Collections;
@@ -15,8 +14,6 @@ namespace Hex.SignalProcessing
         [SerializeField] public FFTWindow FftWindow;
         [SerializeField] [Range(6, 10)] public int SampleCountPowerOf2;
         [SerializeField] [Range(0f, 10f)] public float Amplitude;
-        [SerializeField] [Range(0f, 1f)] public float LowPassFilter;
-        [SerializeField] [Range(0f, 1f)] public float HighPassFilter;
     }
 
     [RequireComponent(typeof(AudioSource))]
@@ -27,8 +24,6 @@ namespace Hex.SignalProcessing
         {
             SampleCountPowerOf2 = 10,
             Amplitude = 1f,
-            LowPassFilter = 0f,
-            HighPassFilter = 1f
         };
 
         public event Action<float[], float> SpectrumDataEmitted;
@@ -77,28 +72,6 @@ namespace Hex.SignalProcessing
             return sum / data.Length;
         }
 
-        // private void Update()
-        // {
-        //     if (!_initialized) { return; }
-        //     int samplesToProcess = _audioSource.timeSamples - _previousTimeSampleTick;
-        //     if (samplesToProcess == 0) { return; }
-        //     int startIndex = _audioSource.timeSamples - samplesToProcess;
-        //     float sum = 0f;
-        //     for (int i = 0; i < samplesToProcess; i++)
-        //     {
-        //         int index = startIndex + i;
-        //         sum += _samples[index];
-        //     }
-        //
-        //     float amplitude = (sum / samplesToProcess);
-        //     // float normalizedAmplitude = (amplitude - _minAmplitude) / (_maxAmplitude - _minAmplitude);
-        //     _audioSource.GetSpectrumData(_spectrumData, 0, _config.FftWindow);
-        //     // SpectrumDataEmitted?.Invoke(_spectrumData, normalizedAmplitude);
-        //     SpectrumDataEmitted?.Invoke(_spectrumData, amplitude);
-        //     _samplesText.text = "Raw: " + amplitude.ToString("0.0000") + "\nMin: " + _minAmplitude + "\nMax: " + _maxAmplitude + "\n Amplitude: " + amplitude.ToString("0.00");
-        //     _previousTimeSampleTick = _audioSource.timeSamples;
-        // }
-
         private void OnDestroy()
         {
             _samples.Dispose();
@@ -109,7 +82,7 @@ namespace Hex.SignalProcessing
             using (Draw.Command(cam))
             {
                 Vector3 drawOrigin = CalculateDrawOrigin();
-                int sampleCount = CalculateSampleCount();
+                int sampleCount = GetSpectrumSampleCount();
                 float[] spectrum = new float[sampleCount];
                 _audioSource.GetSpectrumData(spectrum, 0, _config.FftWindow);
                 
@@ -125,29 +98,17 @@ namespace Hex.SignalProcessing
                     var end = new Vector3(Mathf.Log(i), 0f, spectrum[i] * _config.Amplitude);
                     Draw.Line(drawOrigin + start, drawOrigin + end);
                 }
-
-                float logSampleCount = Mathf.Log(sampleCount-1);
-                float lowPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _config.LowPassFilter);
-                float highPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _config.HighPassFilter);
-                Draw.Color = Color.magenta;
-                Draw.Line(
-                    new Vector3(lowPassX, drawOrigin.y, drawOrigin.z),
-                    new Vector3(lowPassX, drawOrigin.y, drawOrigin.z + 2f));
-                Draw.Color = Color.cyan;
-                Draw.Line(
-                    new Vector3(highPassX, drawOrigin.y, drawOrigin.z),
-                    new Vector3(highPassX, drawOrigin.y, drawOrigin.z + 2f));
             }
         }
         
-        private int CalculateSampleCount()
+        public int GetSpectrumSampleCount()
         {
             return (int)Mathf.Pow(2, _config.SampleCountPowerOf2);
         }
 
-        private Vector3 CalculateDrawOrigin()
+        public Vector3 CalculateDrawOrigin()
         {
-            return transform.position + new Vector3(Mathf.Log(CalculateSampleCount()) / -2f, 125f, 0f);
+            return transform.position + new Vector3(Mathf.Log(GetSpectrumSampleCount()) / -2f, 125f, 0f);
         }
 
         private IEnumerator GetAudioData()
