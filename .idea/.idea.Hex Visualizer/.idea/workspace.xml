@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" afterDir="false" />
     </list>
@@ -69,7 +70,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shapes/Scripts/Runtime/Immediate Mode/DrawOverloads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
@@ -134,13 +134,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21868">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="21868" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -164,6 +166,7 @@
       <workItem from="1736782233619" duration="8678000" />
       <workItem from="1737225992372" duration="308000" />
       <workItem from="1738545040674" duration="9219000" />
+      <workItem from="1740770207774" duration="12403000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />

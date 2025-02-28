@@ -17,8 +17,7 @@ namespace Hex.SignalProcessing.Wave
         [SerializeField] private Gradient _amplitudeGradient = new();
         [SerializeField] [Range(1f, 20f)] private float _amplitudeMultiplier = 1f;
         [SerializeField] private float _minAmplitude;
-        [SerializeField] [Range(0f, 1f)] private float _lowPassFilter;
-        [SerializeField] [Range(0f, 1f)] private float _highPassFilter;
+        
         
         private AudioProcessor _audioProcessor;
         private readonly List<WaveData> _waveData = new();
@@ -83,22 +82,22 @@ namespace Hex.SignalProcessing.Wave
                 transform.up, wave.AgeInSeconds * _propagationSpeedMetersPerSecond, 1f, wave.Color);
         }
         
-        Vector3 drawOrigin = _audioProcessor.CalculateDrawOrigin();
-        int sampleCount = _audioProcessor.GetSpectrumSampleCount();
-                
-        Draw.Thickness = 0.025f;
-        
-        float logSampleCount = Mathf.Log(sampleCount-1);
-        float lowPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _lowPassFilter);
-        float highPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _highPassFilter);
-        Draw.Color = Color.magenta;
-        Draw.Line(
-            new Vector3(lowPassX, drawOrigin.y, drawOrigin.z),
-            new Vector3(lowPassX, drawOrigin.y, drawOrigin.z + 2f));
-        Draw.Color = Color.cyan;
-        Draw.Line(
-            new Vector3(highPassX, drawOrigin.y, drawOrigin.z),
-            new Vector3(highPassX, drawOrigin.y, drawOrigin.z + 2f));
+        // Vector3 drawOrigin = _audioProcessor.CalculateDrawOrigin();
+        // int sampleCount = _audioProcessor.GetSpectrumSampleCount();
+        //
+        // Draw.Thickness = 0.025f;
+        // float logSampleCount = Mathf.Log(sampleCount - 1);
+        // float lowPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _lowPassFilter);
+        // float highPassX = drawOrigin.x + Mathf.Lerp(0f, logSampleCount, _highPassFilter);
+        //
+        // Draw.Color = Color.magenta;
+        // Draw.Line(
+        //     new Vector3(lowPassX, drawOrigin.y, drawOrigin.z),
+        //     new Vector3(lowPassX, drawOrigin.y, drawOrigin.z + 2f));
+        // Draw.Color = Color.cyan;
+        // Draw.Line(
+        //     new Vector3(highPassX, drawOrigin.y, drawOrigin.z),
+        //     new Vector3(highPassX, drawOrigin.y, drawOrigin.z + 2f));
     }
 }
 
@@ -151,21 +150,21 @@ namespace Hex.SignalProcessing.Wave
 
         private void AudioProcessorOnSpectrumDataEmitted(float[] spectrumData, float amplitude)
         {
-            float logNumChannels = Mathf.Log(spectrumData.Length - 1);
-            int dominantFrequencyChannel = CalculateDominantFrequencyChannel(spectrumData);
-            float lpThreshold = _lowPassFilter * logNumChannels;
-            float hpThreshold = _highPassFilter * logNumChannels;
-            
-            if (dominantFrequencyChannel < lpThreshold || dominantFrequencyChannel >= hpThreshold) { return; }
-            _waveData.Add(new WaveData
-            {
-                SpectrumData = spectrumData,
-                Amplitude = amplitude,
-                AgeInSeconds = 0f,
-                Color = GenerateColorFromChannel(_amplitudeGradient, spectrumData, dominantFrequencyChannel)
-            });
-            if (amplitude > _activeMaximum) { _activeMaximum = amplitude; }
-            if (amplitude < _activeMinimum) { _activeMinimum = amplitude; }
+            // float logNumChannels = Mathf.Log(spectrumData.Length - 1);
+            // int dominantFrequencyChannel = CalculateDominantFrequencyChannel(spectrumData);
+            // float lpThreshold = _lowPassFilter * logNumChannels;
+            // float hpThreshold = _highPassFilter * logNumChannels;
+            //
+            // if (dominantFrequencyChannel < lpThreshold || dominantFrequencyChannel >= hpThreshold) { return; }
+            // _waveData.Add(new WaveData
+            // {
+            //     SpectrumData = spectrumData,
+            //     Amplitude = amplitude,
+            //     AgeInSeconds = 0f,
+            //     Color = GenerateColorFromChannel(_amplitudeGradient, spectrumData, dominantFrequencyChannel)
+            // });
+            // if (amplitude > _activeMaximum) { _activeMaximum = amplitude; }
+            // if (amplitude < _activeMinimum) { _activeMinimum = amplitude; }
         }
 
         private void UpdateActiveMinMax()
