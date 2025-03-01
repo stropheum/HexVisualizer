@@ -600,9 +600,9 @@ AudioSource:
   m_GameObject: {fileID: 3772731303267330318}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: d197f3614917b2545a4e9df2f37bdcf7, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3ac2b77ff64167b4289c03c208033e26, type: 3}
-  m_Resource: {fileID: 8300000, guid: 3ac2b77ff64167b4289c03c208033e26, type: 3}
+  OutputAudioMixerGroup: {fileID: 7800322010658717626, guid: d197f3614917b2545a4e9df2f37bdcf7, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3772731303267330318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dee5454d0067dd34592011c879b05f96, type: 3}
   m_Name: 
@@ -935,9 +935,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4423372556795899237}
-  - component: {fileID: 1622167514}
   - component: {fileID: 1622167520}
   - component: {fileID: 1622167521}
+  - component: {fileID: 1622167514}
+  - component: {fileID: 4423372556795899238}
   m_Layer: 0
   m_Name: Spectrum Test
   m_TagString: Untagged
@@ -960,6 +961,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &4423372556795899238
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772731303267330318}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 3215f09cc0554e44fa2543f98df51710, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources:
+  - {fileID: 1622167514}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

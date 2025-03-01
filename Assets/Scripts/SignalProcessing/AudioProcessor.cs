@@ -7,18 +7,6 @@ using UnityEngine;
 
 namespace Hex.SignalProcessing
 {
-    [Serializable]
-    public struct ProcessorConfiguration
-    {
-        [SerializeField] public FFTWindow FftWindow;
-        [SerializeField] [Range(6, 10)] public int SampleCountPowerOf2;
-        [SerializeField] [Range(0f, 10f)] public float Amplitude;
-        [SerializeField] [Range(0f, 1f)] public float LowPassFilter;
-        [SerializeField] [Range(0f, 1f)] public float HighPassFilter;
-        [SerializeField] public float BaseLineThickness;
-        [SerializeField] public Vector3 DrawOriginOffset;
-    }
-
     [RequireComponent(typeof(AudioSource))]
     public class AudioProcessor : ImmediateModeShapeDrawer
     {
@@ -83,6 +71,11 @@ namespace Hex.SignalProcessing
         }
 
         public override void DrawShapes(Camera cam)
+        {
+            DrawLogScaledVisualizer(cam);
+        }
+
+        private void DrawLogScaledVisualizer(Camera cam)
         {
             using (Draw.Command(cam))
             {
@@ -181,7 +174,6 @@ namespace Hex.SignalProcessing
             if (!arrays.TrueForAll(a => a.Length == length)) { throw new ArgumentException("All arrays must have the same length."); }
 
             float[] result = new float[length];
-
             foreach (float[] array in arrays)
             {
                 for (int i = 0; i < length; i++) result[i] += array[i];
