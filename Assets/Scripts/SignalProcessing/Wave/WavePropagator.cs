@@ -27,7 +27,7 @@ namespace Hex.SignalProcessing.Wave
         private void Awake()
         {
             _audioProcessor = GetComponent<AudioProcessor>();
-            _audioProcessor.SpectrumDataEmitted += AudioProcessorOnSpectrumDataEmitted;
+            // _audioProcessor.SpectrumDataEmitted += AudioProcessorOnSpectrumDataEmitted;
         }
 
         private void FixedUpdate()
