@@ -7,13 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="updated render target name">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Audio/MainAudioMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/MainAudioMixer.mixer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
+    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="fixed high and lowpass filters. visualization actually affects audio processing">
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Math.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Math.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,16 +74,21 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Authoring/TileStoreAuthor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Utility/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Utility/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shapes/Scripts/Runtime/Immediate Mode/DrawOverloads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Transforms/LocalTransform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -185,7 +185,7 @@
       <workItem from="1737225992372" duration="308000" />
       <workItem from="1738545040674" duration="9219000" />
       <workItem from="1740770207774" duration="12403000" />
-      <workItem from="1740848104799" duration="16523000" />
+      <workItem from="1740848104799" duration="17519000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -291,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740866318563</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fixed high and lowpass filters. visualization actually affects audio processing">
+      <option name="closed" value="true" />
+      <created>1740869077182</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1740869077182</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,6 +358,7 @@
     <MESSAGE value="extracted visualizer from audio processor" />
     <MESSAGE value="Corrected scene setup. Cleaned up kruft from processor" />
     <MESSAGE value="updated render target name" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated render target name" />
+    <MESSAGE value="fixed high and lowpass filters. visualization actually affects audio processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed high and lowpass filters. visualization actually affects audio processing" />
   </component>
 </project>

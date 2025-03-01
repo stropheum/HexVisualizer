@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 500078021}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 4.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -650,8 +650,8 @@ Transform:
   m_GameObject: {fileID: 1294010846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.75, y: -2.92, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -4.875, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 500078022}
@@ -1146,7 +1146,7 @@ AudioHighPassFilter:
   m_GameObject: {fileID: 3772731303267330318}
   m_Enabled: 1
   m_CutoffFrequency: 22000
-  m_HighpassResonanceQ: 1
+  m_HighpassResonanceQ: 2
 --- !u!169 &4423372556795899240
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,7 @@ AudioLowPassFilter:
   m_GameObject: {fileID: 3772731303267330318}
   m_Enabled: 1
   serializedVersion: 3
-  m_LowpassResonanceQ: 1
+  m_LowpassResonanceQ: 2
   lowpassLevelCustomCurve:
     serializedVersion: 2
     m_Curve:

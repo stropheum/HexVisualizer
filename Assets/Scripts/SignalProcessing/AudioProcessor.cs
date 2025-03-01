@@ -28,12 +28,14 @@ namespace Hex.SignalProcessing
         public event Action<float[]> SpectrumDataEmitted;
         
         private float[] _spectrumData;
+        private AudioSource _audioSource;
         private AudioLowPassFilter _audioLowPassFilter;
         private AudioHighPassFilter _audioHighPassFilter;
 
         private void Awake()
         {
             Debug.Assert(_audioMixer != null, nameof(_audioMixer) + " != null");
+            _audioSource = GetComponent<AudioSource>();
             _audioLowPassFilter = GetComponent<AudioLowPassFilter>();
             _audioHighPassFilter = GetComponent<AudioHighPassFilter>();
             InitializeSpectrumData();
@@ -50,8 +52,8 @@ namespace Hex.SignalProcessing
             {
                 float[] left = new float[SampleCount];
                 float[] right = new float[SampleCount];
-                AudioListener.GetSpectrumData(left, 0, FFTWindow.BlackmanHarris);
-                AudioListener.GetSpectrumData(right, 1, FFTWindow.BlackmanHarris);
+                _audioSource.GetSpectrumData(left, 0, FFTWindow.BlackmanHarris);
+                _audioSource.GetSpectrumData(right, 1, FFTWindow.BlackmanHarris);
                 for (int i = 0; i < SampleCount; i++)
                 {
                     _spectrumData[i] = (left[i] + right[i]) / 2.0f;                                                            
@@ -59,7 +61,7 @@ namespace Hex.SignalProcessing
             }
             else
             {
-                AudioListener.GetSpectrumData(_spectrumData, 0 ,_fftWindow);
+                _audioSource.GetSpectrumData(_spectrumData, 0 ,_fftWindow);
             }
             
             SpectrumDataEmitted?.Invoke(_spectrumData);
