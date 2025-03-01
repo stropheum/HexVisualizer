@@ -81,7 +81,7 @@ namespace Hex.SignalProcessing
                     float logX = Mathf.Log10(i);
                     float percent = 1.0f - logX / Mathf.Log10(_spectrumData.Length - 1);
                     Draw.Thickness = Mathf.Pow(2, (int)(8 * percent)) * _baseLineThickness;
-                    Draw.Color = logX < lowPassX || logX > highPassX ? Color.gray : Color.green;
+                    Draw.Color = logX > lowPassX || logX < highPassX ? Color.gray : Color.green;
                     
                     float scaledAmplitude = _spectrumData[i] * _amplitudeScale;
                     var s = new Vector3(logX, -scaledAmplitude, 0f);
