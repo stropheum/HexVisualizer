@@ -7,9 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="fixed high and lowpass filters. visualization actually affects audio processing">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
-    </list>
+    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="swapped usage to auio source to get pre-effected audio data" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +70,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c08eccfa13ce4e9da1b670057c10656118600/f6/51d5d741/AudioSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed969b0e627d471da4848289f9c322df46ae00/55/8b89858c/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
@@ -185,7 +184,7 @@
       <workItem from="1737225992372" duration="308000" />
       <workItem from="1738545040674" duration="9219000" />
       <workItem from="1740770207774" duration="12403000" />
-      <workItem from="1740848104799" duration="17519000" />
+      <workItem from="1740848104799" duration="18274000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -299,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740869077182</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="swapped usage to auio source to get pre-effected audio data">
+      <option name="closed" value="true" />
+      <created>1740871045161</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1740871045161</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +366,7 @@
     <MESSAGE value="Corrected scene setup. Cleaned up kruft from processor" />
     <MESSAGE value="updated render target name" />
     <MESSAGE value="fixed high and lowpass filters. visualization actually affects audio processing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed high and lowpass filters. visualization actually affects audio processing" />
+    <MESSAGE value="swapped usage to auio source to get pre-effected audio data" />
+    <option name="LAST_COMMIT_MESSAGE" value="swapped usage to auio source to get pre-effected audio data" />
   </component>
 </project>
