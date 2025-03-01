@@ -834,7 +834,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fftWindow: 5
   _sampleCountPowerOf2: 10
-  _amplitude: 0
   <LowPassFilter>k__BackingField: 0
   <HighPassFilter>k__BackingField: 1
 --- !u!1 &1661606253
@@ -850,7 +849,7 @@ GameObject:
   - component: {fileID: 1661606255}
   - component: {fileID: 1661606254}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Video Render Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
