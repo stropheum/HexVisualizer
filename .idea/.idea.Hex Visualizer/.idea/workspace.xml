@@ -7,18 +7,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="updated audio processor configuration">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Array.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Array.cs.meta" afterDir="false" />
+    <list default="true" id="8e62b747-09bb-4083-a134-319b87ade422" name="Changes" comment="extracted visualizer from audio processor">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hex Visualizer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Materials/Video Render Texture.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Materials/Video Render Texture.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Video Render Texture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Video Render Texture.renderTexture" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Signal Processing Testbed.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/AudioProcessor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/ProcessorConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/ProcessorConfiguration.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/Enumerable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/Enumerable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SignalProcessing/WaveformVisualizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,12 +80,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed969b0e627d471da4848289f9c322df46ae00/55/8b89858c/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scenes/Signal Processing Testbed.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Authoring/TileStoreAuthor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DayNightCycle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PerlinHeight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/AudioProcessor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SignalProcessing/Wave/WaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/SignalProcessing/Wave/WavePropagator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/PositionUpdateSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Users/strop/Documents/GitHub/Hex Visualizer/Assets/Scripts/Utility/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Shapes/Scripts/Runtime/Immediate Mode/DrawOverloads.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Entities.Hybrid/Baking/Baker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities/Unity.Transforms/LocalTransform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -184,7 +186,7 @@
       <workItem from="1737225992372" duration="308000" />
       <workItem from="1738545040674" duration="9219000" />
       <workItem from="1740770207774" duration="12403000" />
-      <workItem from="1740848104799" duration="12285000" />
+      <workItem from="1740848104799" duration="13825000" />
     </task>
     <task id="LOCAL-00001" summary="Added signal processing testbed">
       <option name="closed" value="true" />
@@ -266,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740856412350</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="extracted visualizer from audio processor">
+      <option name="closed" value="true" />
+      <created>1740864870366</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1740864870366</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +332,7 @@
     <MESSAGE value="Configured low and high pass filters in visualization" />
     <MESSAGE value="updated workspace" />
     <MESSAGE value="updated audio processor configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated audio processor configuration" />
+    <MESSAGE value="extracted visualizer from audio processor" />
+    <option name="LAST_COMMIT_MESSAGE" value="extracted visualizer from audio processor" />
   </component>
 </project>

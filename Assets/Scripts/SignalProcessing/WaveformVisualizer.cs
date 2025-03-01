@@ -89,7 +89,7 @@ namespace Hex.SignalProcessing
                     Draw.Rectangle(drawOrigin + s, size, RectPivot.Corner);
                 }
                 
-                Draw.Thickness = 4f;
+                Draw.Thickness = _baseLineThickness;
                 Draw.Color = Color.magenta;
                 Draw.Line(
                     drawOrigin + new Vector3(lowPassX, -1f, 0f),

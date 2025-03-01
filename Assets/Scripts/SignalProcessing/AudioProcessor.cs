@@ -1,5 +1,4 @@
 using System;
-using Unity.Collections;
 using UnityEngine;
 
 namespace Hex.SignalProcessing
@@ -9,11 +8,10 @@ namespace Hex.SignalProcessing
     {
         [SerializeField] private FFTWindow _fftWindow;
         [SerializeField] [Range(6, 10)] private int _sampleCountPowerOf2;
-        [SerializeField] [Range(0f, 10f)] private float _amplitude;
         
         [field: SerializeField]
         [field: Range(0f, 1f)]
-        public float LowPassFilter { get; private set; } = 0f;
+        public float LowPassFilter { get; private set; }
 
         [field: SerializeField]
         [field: Range(0f, 1f)]
@@ -21,15 +19,8 @@ namespace Hex.SignalProcessing
 
         public int SampleCount { get; private set; }
         public event Action<float[]> SpectrumDataEmitted;
-
-        private NativeArray<float> _samples;
+        
         private float[] _spectrumData;
-        private float _minAmplitude;
-        private float _maxAmplitude;
-        private float _cachedAmplitude;
-        private int _previousTimeSampleTick;
-        private bool _initialized;
-        private int _channelCount;
 
         private void Awake()
         {
@@ -71,9 +62,5 @@ namespace Hex.SignalProcessing
             _spectrumData = new float[SampleCount];
         }
 
-        private void OnDestroy()
-        {
-            _samples.Dispose();
-        }
     }
 }
