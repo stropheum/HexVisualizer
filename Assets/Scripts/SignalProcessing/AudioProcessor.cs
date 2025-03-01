@@ -52,8 +52,8 @@ namespace Hex.SignalProcessing
             {
                 float[] left = new float[SampleCount];
                 float[] right = new float[SampleCount];
-                _audioSource.GetSpectrumData(left, 0, FFTWindow.BlackmanHarris);
-                _audioSource.GetSpectrumData(right, 1, FFTWindow.BlackmanHarris);
+                _audioSource.GetSpectrumData(left, 0, _fftWinodw);
+                _audioSource.GetSpectrumData(right, 1, _fftWindow);
                 for (int i = 0; i < SampleCount; i++)
                 {
                     _spectrumData[i] = (left[i] + right[i]) / 2.0f;                                                            
@@ -61,7 +61,7 @@ namespace Hex.SignalProcessing
             }
             else
             {
-                _audioSource.GetSpectrumData(_spectrumData, 0 ,_fftWindow);
+                _audioSource.GetSpectrumData(_spectrumData, 0, _fftWindow);
             }
             
             SpectrumDataEmitted?.Invoke(_spectrumData);
