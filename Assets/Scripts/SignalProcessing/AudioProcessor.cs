@@ -9,8 +9,8 @@ namespace Hex.SignalProcessing
     [RequireComponent(typeof(AudioHighPassFilter))]
     public class AudioProcessor : MonoBehaviour
     {
-        private const float MinFrequency = 10.0f;
-        private const float MaxFrequency = 22000.0f;
+        public const float MinFrequency = 10.0f;
+        public const float MaxFrequency = 22000.0f;
         
         [SerializeField] private AudioMixer _audioMixer;
         [SerializeField] private FFTWindow _fftWindow;
@@ -52,7 +52,7 @@ namespace Hex.SignalProcessing
             {
                 float[] left = new float[SampleCount];
                 float[] right = new float[SampleCount];
-                _audioSource.GetSpectrumData(left, 0, _fftWinodw);
+                _audioSource.GetSpectrumData(left, 0, _fftWindow);
                 _audioSource.GetSpectrumData(right, 1, _fftWindow);
                 for (int i = 0; i < SampleCount; i++)
                 {
