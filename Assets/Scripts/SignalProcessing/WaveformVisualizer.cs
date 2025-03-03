@@ -152,7 +152,6 @@ namespace Hex.SignalProcessing
                 Debug.LogError("_spectrumData == null || _spectrumData.Length != _audioProcessor.SampleCount);");
                 return;
             }
-
             
             using DrawCommand dc = Draw.Command(cam);
             Vector3 drawOrigin = new Vector3(Mathf.Log10(_audioProcessor.SampleCount) / -2f, 0f, 0f) + _drawOriginOffset;
