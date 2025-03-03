@@ -115,7 +115,7 @@ namespace Hex.SignalProcessing
                     int startIndex = _frequencyBandRanges[i].Item1;
                     int endIndex = _frequencyBandRanges[i].Item2;
                     for (int j = startIndex; j < endIndex; j++) sum += _spectrumData[j];
-                    _frequencyBands[i] = sum;// / (endIndex - startIndex);
+                    _frequencyBands[i] = sum;
                 }
 
                 Draw.Thickness = _baseLineThickness;
