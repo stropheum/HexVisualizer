@@ -153,59 +153,58 @@ namespace Hex.SignalProcessing
                 return;
             }
 
-            using (Draw.Command(cam))
+            
+            using DrawCommand dc = Draw.Command(cam);
+            Vector3 drawOrigin = new Vector3(Mathf.Log10(_audioProcessor.SampleCount) / -2f, 0f, 0f) + _drawOriginOffset;
+            int sampleCount = _audioProcessor.SampleCount;
+
+            Draw.LineGeometry = LineGeometry.Billboard;
+            Draw.ThicknessSpace = ThicknessSpace.Pixels;
+            Draw.Matrix = transform.localToWorldMatrix;
+
+            float logSampleCount = Mathf.Log10(sampleCount - 1);
+            float lowPassX = Mathf.Lerp(0f, logSampleCount, _audioProcessor.LowPassFilter);
+            float highPassX = Mathf.Lerp(0f, logSampleCount, _audioProcessor.HighPassFilter);
+            
+            Draw.Color = new Color(0.25f, 0.25f, 0.25f);
+            Draw.Rectangle(
+                _drawOriginOffset,
+                3.5f,
+                2.5f,
+                RectPivot.Center,
+                0.125f);
+            Draw.Color = new Color(0.71f, 0.14f, 0.75f);
+            Draw.RectangleBorder(
+                _drawOriginOffset,
+                3.5f,
+                2.5f,
+                RectPivot.Center,
+                4.0f,
+                0.125f);
+
+            Draw.Thickness = _baseLineThickness;
+            for (int i = 0; i < _spectrumData.Length; i++)
             {
-                Vector3 drawOrigin = new Vector3(Mathf.Log10(_audioProcessor.SampleCount) / -2f, 0f, 0f) + _drawOriginOffset;
-                int sampleCount = _audioProcessor.SampleCount;
+                float logX = Mathf.Log10(i);
+                float percent = 1.0f - logX / Mathf.Log10(_spectrumData.Length - 1);
+                Draw.Thickness = Mathf.Pow(2, (int)(8 * percent)) * _baseLineThickness;
+                Draw.Color = logX > lowPassX || logX < highPassX ? Color.gray : Color.green;
 
-                Draw.LineGeometry = LineGeometry.Billboard;
-                Draw.ThicknessSpace = ThicknessSpace.Pixels;
-                Draw.Matrix = transform.localToWorldMatrix;
-
-                float logSampleCount = Mathf.Log10(sampleCount - 1);
-                float lowPassX = Mathf.Lerp(0f, logSampleCount, _audioProcessor.LowPassFilter);
-                float highPassX = Mathf.Lerp(0f, logSampleCount, _audioProcessor.HighPassFilter);
-                
-                Draw.Color = new Color(0.25f, 0.25f, 0.25f);
-                Draw.Rectangle(
-                    _drawOriginOffset,
-                    3.5f,
-                    2.5f,
-                    RectPivot.Center,
-                    0.125f);
-                Draw.Color = new Color(0.71f, 0.14f, 0.75f);
-                Draw.RectangleBorder(
-                    _drawOriginOffset,
-                    3.5f,
-                    2.5f,
-                    RectPivot.Center,
-                    4.0f,
-                    0.125f);
-
-                Draw.Thickness = _baseLineThickness;
-                for (int i = 0; i < _spectrumData.Length; i++)
-                {
-                    float logX = Mathf.Log10(i);
-                    float percent = 1.0f - logX / Mathf.Log10(_spectrumData.Length - 1);
-                    Draw.Thickness = Mathf.Pow(2, (int)(8 * percent)) * _baseLineThickness;
-                    Draw.Color = logX > lowPassX || logX < highPassX ? Color.gray : Color.green;
-
-                    float scaledAmplitude = _spectrumData[i] * _amplitudeScale;
-                    var barOffset = new Vector3(logX, -scaledAmplitude, 0f);
-                    var size = new Vector2(Mathf.Log10(i + 1) - logX, scaledAmplitude * 2.0f);
-                    Draw.Rectangle(drawOrigin + barOffset, size, RectPivot.Corner);
-                }
-
-                Draw.Thickness = _baseLineThickness;
-                Draw.Color = Color.magenta;
-                Draw.Line(
-                    drawOrigin + new Vector3(lowPassX, -1f, 0f),
-                    drawOrigin + new Vector3(lowPassX, 1f, 0f));
-                Draw.Color = Color.cyan;
-                Draw.Line(
-                    drawOrigin + new Vector3(highPassX, -1f, 0f),
-                    drawOrigin + new Vector3(highPassX, 1f, 0f));
+                float scaledAmplitude = _spectrumData[i] * _amplitudeScale;
+                var barOffset = new Vector3(logX, -scaledAmplitude, 0f);
+                var size = new Vector2(Mathf.Log10(i + 1) - logX, scaledAmplitude * 2.0f);
+                Draw.Rectangle(drawOrigin + barOffset, size, RectPivot.Corner);
             }
+
+            Draw.Thickness = _baseLineThickness;
+            Draw.Color = Color.magenta;
+            Draw.Line(
+                drawOrigin + new Vector3(lowPassX, -1f, 0f),
+                drawOrigin + new Vector3(lowPassX, 1f, 0f));
+            Draw.Color = Color.cyan;
+            Draw.Line(
+                drawOrigin + new Vector3(highPassX, -1f, 0f),
+                drawOrigin + new Vector3(highPassX, 1f, 0f));
         }
 
         private void TryUpdateLinearizedModel()
