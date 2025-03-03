@@ -76,73 +76,71 @@ namespace Hex.SignalProcessing
                 return;
             }
 
-            using (Draw.Command(cam))
+            using DrawCommand drawCommand = Draw.Command(cam);
+            Vector3 drawOrigin = new Vector3(_windowSize.x * -0.5f, 0f, 0f) + _drawOriginOffset;
+
+            Draw.LineGeometry = LineGeometry.Billboard;
+            Draw.ThicknessSpace = ThicknessSpace.Pixels;
+            Draw.Matrix = transform.localToWorldMatrix;
+                
+            float lowPassX = Mathf.Lerp(0f, _windowSize.x, _audioProcessor.LowPassFilter);
+            float highPassX = Mathf.Lerp(0f, _windowSize.x, _audioProcessor.HighPassFilter);
+
+            // draw backing panel
+            Draw.Color = new Color(0.2f, 0.2f, 0.2f);
+            Draw.Rectangle(
+                _drawOriginOffset,
+                _windowSize.x + _windowPadding.x,
+                _windowSize.y + _windowPadding.y,
+                RectPivot.Center,
+                0.125f);
+            Draw.Color = Color.black;
+            Draw.RectangleBorder(
+                _drawOriginOffset,
+                _windowSize.x + _windowPadding.x,
+                _windowSize.y + _windowPadding.y,
+                RectPivot.Center,
+                4.0f,
+                0.125f);
+
+            const string labelText = "Visualizer Mode: Linearized";
+            Vector3 textPosition = new Vector3(_windowSize.x, _windowSize.y, 0f) * -0.5f + _drawOriginOffset + new Vector3(0.125f, 0.05f, 0f);
+            var textColor = new Color(1, 1, 1, 0.75f);
+            Draw.Text(content: labelText, align: TextAlign.BottomLeft, color: textColor, fontSize: 2f, pos: textPosition);
+
+            for (int i = 0; i < _frequencyBandRanges.Length; i++)
             {
-                Vector3 drawOrigin = new Vector3(_windowSize.x * -0.5f, 0f, 0f) + _drawOriginOffset;
-
-                Draw.LineGeometry = LineGeometry.Billboard;
-                Draw.ThicknessSpace = ThicknessSpace.Pixels;
-                Draw.Matrix = transform.localToWorldMatrix;
-                
-                float lowPassX = Mathf.Lerp(0f, _windowSize.x, _audioProcessor.LowPassFilter);
-                float highPassX = Mathf.Lerp(0f, _windowSize.x, _audioProcessor.HighPassFilter);
-
-                // draw backing panel
-                Draw.Color = new Color(0.2f, 0.2f, 0.2f);
-                Draw.Rectangle(
-                    _drawOriginOffset,
-                    _windowSize.x + _windowPadding.x,
-                    _windowSize.y + _windowPadding.y,
-                    RectPivot.Center,
-                    0.125f);
-                Draw.Color = Color.black;
-                Draw.RectangleBorder(
-                    _drawOriginOffset,
-                    _windowSize.x + _windowPadding.x,
-                    _windowSize.y + _windowPadding.y,
-                    RectPivot.Center,
-                    4.0f,
-                    0.125f);
-
-                const string labelText = "Visualizer Mode: Linearized";
-                Vector3 textPosition = new Vector3(_windowSize.x, _windowSize.y, 0f) * -0.5f + _drawOriginOffset + new Vector3(0.125f, 0.05f, 0f);
-                var textColor = new Color(1, 1, 1, 0.75f);
-                Draw.Text(content: labelText, align: TextAlign.BottomLeft, color: textColor, fontSize: 2f, pos: textPosition);
-
-                for (int i = 0; i < _frequencyBandRanges.Length; i++)
-                {
-                    float sum = 0f;
-                    int startIndex = _frequencyBandRanges[i].Item1;
-                    int endIndex = _frequencyBandRanges[i].Item2;
-                    for (int j = startIndex; j < endIndex; j++) sum += _spectrumData[j];
-                    _frequencyBands[i] = sum;
-                }
-
-                Draw.Thickness = _baseLineThickness;
-                float barThickness = _windowSize.x / _frequencyBandCount;
-                for (int i = 0; i < _frequencyBandCount; i++)
-                {
-                    float percent = (float)i / _frequencyBandCount;
-                    Draw.Color = percent > _audioProcessor.LowPassFilter || percent < _audioProcessor.HighPassFilter
-                        ? Color.gray
-                        : Color.green;
-
-                    float scaledAmplitude = _frequencyBands[i] * Mathf.Log10(i + 2) * _amplitudeScale;
-                    var size = new Vector2(barThickness, scaledAmplitude * 2.0f);
-                    var barOffset = new Vector3(i * barThickness, -scaledAmplitude, 0f);
-                    Draw.Rectangle(drawOrigin + barOffset, size, RectPivot.Corner);
-                }
-                
-                Draw.Thickness = _baseLineThickness;
-                Draw.Color = Color.magenta;
-                Draw.Line(
-                    drawOrigin + new Vector3(lowPassX, -1f, 0f),
-                    drawOrigin + new Vector3(lowPassX, 1f, 0f));
-                Draw.Color = Color.cyan;
-                Draw.Line(
-                    drawOrigin + new Vector3(highPassX, -1f, 0f),
-                    drawOrigin + new Vector3(highPassX, 1f, 0f));
+                float sum = 0f;
+                int startIndex = _frequencyBandRanges[i].Item1;
+                int endIndex = _frequencyBandRanges[i].Item2;
+                for (int j = startIndex; j < endIndex; j++) sum += _spectrumData[j];
+                _frequencyBands[i] = sum;
             }
+
+            Draw.Thickness = _baseLineThickness;
+            float barThickness = _windowSize.x / _frequencyBandCount;
+            for (int i = 0; i < _frequencyBandCount; i++)
+            {
+                float percent = (float)i / _frequencyBandCount;
+                Draw.Color = percent > _audioProcessor.LowPassFilter || percent < _audioProcessor.HighPassFilter
+                    ? Color.gray
+                    : Color.green;
+
+                float scaledAmplitude = _frequencyBands[i] * Mathf.Log10(i + 2) * _amplitudeScale;
+                var size = new Vector2(barThickness, scaledAmplitude * 2.0f);
+                var barOffset = new Vector3(i * barThickness, -scaledAmplitude, 0f);
+                Draw.Rectangle(drawOrigin + barOffset, size, RectPivot.Corner);
+            }
+                
+            Draw.Thickness = _baseLineThickness;
+            Draw.Color = Color.magenta;
+            Draw.Line(
+                drawOrigin + new Vector3(lowPassX, -1f, 0f),
+                drawOrigin + new Vector3(lowPassX, 1f, 0f));
+            Draw.Color = Color.cyan;
+            Draw.Line(
+                drawOrigin + new Vector3(highPassX, -1f, 0f),
+                drawOrigin + new Vector3(highPassX, 1f, 0f));
         }
 
         private void DrawLogScaledVisualizer(Camera cam)
